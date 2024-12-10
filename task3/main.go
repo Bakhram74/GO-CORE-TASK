@@ -1,5 +1,6 @@
 package main
 
+// tsk3
 type Node struct {
 	Key   string
 	Value int
