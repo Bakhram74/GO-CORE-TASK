@@ -1,18 +1,17 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestRandomNumber(t *testing.T) {
-	ch1 := make(chan int)
-	go randomNumber(ch1)
-	if <-ch1 == 0 {
-		t.Errorf("want random numbers, got: %d", 0)
+	n := 10
+	numbers := randomNumber(n)
+	slice := make([]int, 0, n)
+	for n := range numbers {
+		slice = append(slice, n)
 	}
-
-	ch2 := make(chan int)
-	go randomNumber(ch2)
-	if <-ch1 == <-ch2 {
-		t.Errorf("ch1:%d equal to ch2:%d", ch1, ch2)
+	if len(slice) != 10 {
+		t.Errorf("want:%d random numbers, got:%d", n, len(slice))
 	}
-
 }
