@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-// tsk3
+
 func TestInsert(t *testing.T) {
 	hashMap := NewHashMap(7)
 
